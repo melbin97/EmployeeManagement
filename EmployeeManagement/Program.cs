@@ -18,9 +18,17 @@ namespace EmployeeManagement
             using var db = new EmployeeContext();
             {
                 Console.WriteLine("inserting employee data..");
-                db.Add(new Employee { Id = 1234, Name = "Melbin", Designation = "Engineer", Address = "Dilshad Garden" });
+                db.Add(new Employee { Id = 13234, Name = "Milton", Designation = "Accountant", Address = "Dilshad Garden" });
                 db.SaveChanges();
+                
+                //read
+                Console.WriteLine("Querrying employee tabel..");
+                var employee = db.Employees
+                    .OrderBy(b => b.Id)
+                    .First();
+                Console.WriteLine(employee);
             }
+
             
         }
 
